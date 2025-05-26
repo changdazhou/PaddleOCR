@@ -3341,7 +3341,7 @@ en_PP-OCRv4_mobile_rec_infer.tar">推理模型</a>/<a href="https://paddle-model
 </tr>
 </table>
 
-> ❗ 以上列出的是文本识别模块重点支持的<b>4个核心模型</b>，该模块总共支持<b>20个全量模型</b>，包含多个多语言文本识别模型，完整的模型列表如下：
+> ❗ 以上列出的是文本识别模块重点支持的<b>6个核心模型</b>，该模块总共支持<b>20个全量模型</b>，包含多个多语言文本识别模型，完整的模型列表如下：
 
 <details><summary> 👉模型列表详情</summary>
 
@@ -4086,11 +4086,18 @@ devanagari_PP-OCRv3_mobile_rec_infer.tar">推理模型</a>/<a href="https://padd
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># ocr = PaddleOCR(lang=&quot;en&quot;) # 通过 lang 参数来使用英文模型</span>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># ocr = PaddleOCR(ocr_version=&quot;PP-OCRv4&quot;) # 通过 ocr_version 参数来使用 PP-OCR 其他版本</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># ocr = PaddleOCR(device=&quot;gpu&quot;) # 通过 device 参数使得在模型推理时使用 GPU</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">result</span> <span class="o">=</span> <span class="n">ocr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">&quot;./general_ocr_002.png&quot;</span><span class="p">)</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">res</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="n">res</span><span class="o">.</span><span class="n">save_to_img</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">)</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="n">res</span><span class="o">.</span><span class="n">save_to_json</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># ocr = PaddleOCR(</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1">#     text_detection_model_name=&quot;PP-OCRv5_server_det&quot;,</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1">#     text_recognition_model_name=&quot;PP-OCRv5_server_rec&quot;,</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1">#     use_doc_orientation_classify=False,</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1">#     use_doc_unwarping=False,</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c1">#     use_textline_orientation=False,</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1"># ) # 更换 PP-OCRv5_server 模型</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="n">result</span> <span class="o">=</span> <span class="n">ocr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">&quot;./general_ocr_002.png&quot;</span><span class="p">)</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="n">res</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="n">res</span><span class="o">.</span><span class="n">save_to_img</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">)</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="n">res</span><span class="o">.</span><span class="n">save_to_json</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <p>在上述 Python 脚本中，执行了如下几个步骤：</p>
 <details><summary>（1）通过 <code>PaddleOCR()</code> 实例化 OCR 产线对象，具体参数说明如下：</summary>
@@ -4503,52 +4510,54 @@ devanagari_PP-OCRv3_mobile_rec_infer.tar">推理模型</a>/<a href="https://padd
 </tr>
 </table>
 
-- 调用`print()` 方法会将结果打印到终端，打印到终端的内容解释如下：
+<ul>
+  <li>调用<code>print()</code> 方法会将结果打印到终端，打印到终端的内容解释如下：
+    <ul>
+      <li><code>input_path</code>: <code>(str)</code> 待预测图像的输入路径</li>
+      <li><code>page_index</code>: <code>(Union[int, None])</code> 如果输入是PDF文件，则表示当前是PDF的第几页，否则为 <code>None</code></li>
+      <li><code>model_settings</code>: <code>(Dict[str, bool])</code> 配置产线所需的模型参数
+        <ul>
+          <li><code>use_doc_preprocessor</code>: <code>(bool)</code> 控制是否启用文档预处理子产线</li>
+          <li><code>use_textline_orientation</code>: <code>(bool)</code> 控制是否启用文本行方向分类功能</li>
+        </ul>
+      </li>
+      <li><code>doc_preprocessor_res</code>: <code>(Dict[str, Union[str, Dict[str, bool], int]])</code> 文档预处理子产线的输出结果。仅当<code>use_doc_preprocessor=True</code>时存在
+        <ul>
+          <li><code>input_path</code>: <code>(Union[str, None])</code> 图像预处理子产线接受的图像路径，当输入为<code>numpy.ndarray</code>时，保存为<code>None</code></li>
+          <li><code>model_settings</code>: <code>(Dict)</code> 预处理子产线的模型配置参数
+            <ul>
+              <li><code>use_doc_orientation_classify</code>: <code>(bool)</code> 控制是否启用文档方向分类</li>
+              <li><code>use_doc_unwarping</code>: <code>(bool)</code> 控制是否启用文本图像矫正</li>
+            </ul>
+          </li>
+          <li><code>angle</code>: <code>(int)</code> 文档方向分类的预测结果。启用时取值为[0,1,2,3]，分别对应[0°,90°,180°,270°]；未启用时为-1</li>
+        </ul>
+      </li>
+      <li><code>dt_polys</code>: <code>(List[numpy.ndarray])</code> 文本检测的多边形框列表。每个检测框由4个顶点坐标构成的numpy数组表示，数组shape为(4, 2)，数据类型为int16</li>
+      <li><code>dt_scores</code>: <code>(List[float])</code> 文本检测框的置信度列表</li>
+      <li><code>text_det_params</code>: <code>(Dict[str, Dict[str, int, float]])</code> 文本检测模块的配置参数
+        <ul>
+          <li><code>limit_side_len</code>: <code>(int)</code> 图像预处理时的边长限制值</li>
+          <li><code>limit_type</code>: <code>(str)</code> 边长限制的处理方式</li>
+          <li><code>thresh</code>: <code>(float)</code> 文本像素分类的置信度阈值</li>
+          <li><code>box_thresh</code>: <code>(float)</code> 文本检测框的置信度阈值</li>
+          <li><code>unclip_ratio</code>: <code>(float)</code> 文本检测框的膨胀系数</li>
+          <li><code>text_type</code>: <code>(str)</code> 文本检测的类型，当前固定为"general"</li>
+        </ul>
+      </li>
+      <li><code>textline_orientation_angles</code>: <code>(List[int])</code> 文本行方向分类的预测结果。启用时返回实际角度值（如[0,0,1]），未启用时返回[-1,-1,-1]</li>
+      <li><code>text_rec_score_thresh</code>: <code>(float)</code> 文本识别结果的过滤阈值</li>
+      <li><code>rec_texts</code>: <code>(List[str])</code> 文本识别结果列表，仅包含置信度超过<code>text_rec_score_thresh</code>的文本</li>
+      <li><code>rec_scores</code>: <code>(List[float])</code> 文本识别的置信度列表，已按<code>text_rec_score_thresh</code>过滤</li>
+      <li><code>rec_polys</code>: <code>(List[numpy.ndarray])</code> 经过置信度过滤的文本检测框列表，格式同<code>dt_polys</code></li>
+      <li><code>rec_boxes</code>: <code>(numpy.ndarray)</code> 检测框的矩形边界框数组，shape为(n, 4)，dtype为int16。每一行表示一个矩形框的[x_min, y_min, x_max, y_max]坐标，其中(x_min, y_min)为左上角坐标，(x_max, y_max)为右下角坐标</li>
+    </ul>
+  </li>
+  <li>调用<code>save_to_json()</code> 方法会将上述内容保存到指定的<code>save_path</code>中，如果指定为目录，则保存的路径为<code>save_path/{your_img_basename}_res.json</code>，如果指定为文件，则直接保存到该文件中。由于json文件不支持保存numpy数组，因此会将其中的<code>numpy.array</code>类型转换为列表形式。</li>
+  <li>调用<code>save_to_img()</code> 方法会将可视化结果保存到指定的<code>save_path</code>中，如果指定为目录，则保存的路径为<code>save_path/{your_img_basename}_ocr_res_img.{your_img_extension}</code>，如果指定为文件，则直接保存到该文件中。(产线通常包含较多结果图片，不建议直接指定为具体的文件路径，否则多张图会被覆盖，仅保留最后一张图)</li>
+</ul>
 
-    - `input_path`: `(str)` 待预测图像的输入路径
-
-    - `page_index`: `(Union[int, None])` 如果输入是PDF文件，则表示当前是PDF的第几页，否则为 `None`
-
-    - `model_settings`: `(Dict[str, bool])` 配置产线所需的模型参数
-
-        - `use_doc_preprocessor`: `(bool)` 控制是否启用文档预处理子产线
-        - `use_textline_orientation`: `(bool)` 控制是否启用文本行方向分类功能
-
-    - `doc_preprocessor_res`: `(Dict[str, Union[str, Dict[str, bool], int]])` 文档预处理子产线的输出结果。仅当`use_doc_preprocessor=True`时存在
-        - `input_path`: `(Union[str, None])` 图像预处理子产线接受的图像路径，当输入为`numpy.ndarray`时，保存为`None`
-        - `model_settings`: `(Dict)` 预处理子产线的模型配置参数
-            - `use_doc_orientation_classify`: `(bool)` 控制是否启用文档方向分类
-            - `use_doc_unwarping`: `(bool)` 控制是否启用文本图像矫正
-        - `angle`: `(int)` 文档方向分类的预测结果。启用时取值为[0,1,2,3]，分别对应[0°,90°,180°,270°]；未启用时为-1
-
-    - `dt_polys`: `(List[numpy.ndarray])` 文本检测的多边形框列表。每个检测框由4个顶点坐标构成的numpy数组表示，数组shape为(4, 2)，数据类型为int16
-
-    - `dt_scores`: `(List[float])` 文本检测框的置信度列表
-
-    - `text_det_params`: `(Dict[str, Dict[str, int, float]])` 文本检测模块的配置参数
-        - `limit_side_len`: `(int)` 图像预处理时的边长限制值
-        - `limit_type`: `(str)` 边长限制的处理方式
-        - `thresh`: `(float)` 文本像素分类的置信度阈值
-        - `box_thresh`: `(float)` 文本检测框的置信度阈值
-        - `unclip_ratio`: `(float)` 文本检测框的膨胀系数
-        - `text_type`: `(str)` 文本检测的类型，当前固定为"general"
-
-    - `textline_orientation_angles`: `(List[int])` 文本行方向分类的预测结果。启用时返回实际角度值（如[0,0,1]），未启用时返回[-1,-1,-1]
-
-    - `text_rec_score_thresh`: `(float)` 文本识别结果的过滤阈值
-
-    - `rec_texts`: `(List[str])` 文本识别结果列表，仅包含置信度超过`text_rec_score_thresh`的文本
-
-    - `rec_scores`: `(List[float])` 文本识别的置信度列表，已按`text_rec_score_thresh`过滤
-
-    - `rec_polys`: `(List[numpy.ndarray])` 经过置信度过滤的文本检测框列表，格式同`dt_polys`
-
-    - `rec_boxes`: `(numpy.ndarray)` 检测框的矩形边界框数组，shape为(n, 4)，dtype为int16。每一行表示一个矩形框的[x_min, y_min, x_max, y_max]坐标，其中(x_min, y_min)为左上角坐标，(x_max, y_max)为右下角坐标
-
-- 调用`save_to_json()` 方法会将上述内容保存到指定的`save_path`中，如果指定为目录，则保存的路径为`save_path/{your_img_basename}_res.json`，如果指定为文件，则直接保存到该文件中。由于json文件不支持保存numpy数组，因此会将其中的`numpy.array`类型转换为列表形式。
-- 调用`save_to_img()` 方法会将可视化结果保存到指定的`save_path`中，如果指定为目录，则保存的路径为`save_path/{your_img_basename}_ocr_res_img.{your_img_extension}`，如果指定为文件，则直接保存到该文件中。(产线通常包含较多结果图片，不建议直接指定为具体的文件路径，否则多张图会被覆盖，仅保留最后一张图)
-
-* 此外，也支持通过属性获取带结果的可视化图像和预测结果，具体如下：
+<p>此外，也支持通过属性获取带结果的可视化图像和预测结果，具体如下：</p>
 
 <table>
 <thead>
@@ -4567,8 +4576,10 @@ devanagari_PP-OCRv3_mobile_rec_infer.tar">推理模型</a>/<a href="https://padd
 </tr>
 </table>
 
-- `json` 属性获取的预测结果为dict类型的数据，相关内容与调用 `save_to_json()` 方法保存的内容一致。
-- `img` 属性返回的预测结果是一个字典类型的数据。其中，键分别为 `ocr_res_img` 和 `preprocessed_img`，对应的值是两个 `Image.Image` 对象：一个用于显示 OCR 结果的可视化图像，另一个用于展示图像预处理的可视化图像。如果没有使用图像预处理子模块，则字典中只包含 `ocr_res_img`。
+<ul>
+  <li><code>json</code> 属性获取的预测结果为dict类型的数据，相关内容与调用 <code>save_to_json()</code> 方法保存的内容一致。</li>
+  <li><code>img</code> 属性返回的预测结果是一个字典类型的数据。其中，键分别为 <code>ocr_res_img</code> 和 <code>preprocessed_img</code>，对应的值是两个 <code>Image.Image</code> 对象：一个用于显示 OCR 结果的可视化图像，另一个用于展示图像预处理的可视化图像。如果没有使用图像预处理子模块，则字典中只包含 <code>ocr_res_img</code>。</li>
+</ul>
 
 </details>
 
@@ -4890,18 +4901,14 @@ for i, res in enumerate(result["ocrResults"]):
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># pipeline = PaddleOCR(text_detection_model_name=&quot;PP-OCRv5_server_det&quot;, text_detection_model_dir=&quot;./your_v5_server_det_model_path&quot;)</span>
 </span></code></pre></div>
 <h4 id="422">4.2.2 通过配置文件指定本地模型路径<a class="headerlink" href="#422" title="Permanent link">&para;</a></h4>
-<ol>
-<li>获取产线配置文件</li>
-</ol>
+<p>1.获取产线配置文件</p>
 <p>可调用 PaddleOCR 中 通用OCR 产线对象的 <code>export_paddlex_config_to_yaml</code> 方法，将当前产线配置导出为 YAML 文件：</p>
 <div class="language-Python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">paddleocr</span><span class="w"> </span><span class="kn">import</span> <span class="n">PaddleOCR</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">pipeline</span> <span class="o">=</span> <span class="n">PaddleOCR</span><span class="p">()</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">pipeline</span><span class="o">.</span><span class="n">export_paddlex_config_to_yaml</span><span class="p">(</span><span class="s2">&quot;PaddleOCR.yaml&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<ol>
-<li>修改配置文件</li>
-</ol>
+<p>2.修改配置文件</p>
 <p>在得到默认的产线配置文件后，将微调后模型权重的本地路径替换至产线配置文件中的对应位置即可。例如</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="l l-Scalar l-Scalar-Plain">......</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="l l-Scalar l-Scalar-Plain">SubModules</span><span class="p p-Indicator">:</span>
@@ -4929,15 +4936,11 @@ for i, res in enumerate(result["ocrResults"]):
 </span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="l l-Scalar l-Scalar-Plain">......</span>
 </span></code></pre></div>
 <p>在产线配置文件中，不仅包含 PaddleOCR CLI 和 Python API 支持的参数，还可进行更多高级配置，具体信息可在 <a href="https://paddlepaddle.github.io/PaddleX/3.0/pipeline_usage/pipeline_develop_guide.html">PaddleX模型产线使用概览</a> 中找到对应的产线使用教程，参考其中的详细说明，根据需求调整各项配置。</p>
-<ol>
-<li>在 CLI 中加载产线配置文件</li>
-</ol>
+<p>3.在 CLI 中加载产线配置文件</p>
 <p>在修改完成配置文件后，通过命令行的 --paddlex_config 参数指定修改后的产线配置文件的路径，PaddleOCR 会读取其中的内容作为产线配置。示例如下：</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>paddleocr<span class="w"> </span>ocr<span class="w"> </span>--paddlex_config<span class="w"> </span>PaddleOCR.yaml<span class="w"> </span>...
 </span></code></pre></div>
-<ol>
-<li>在 Python API 中加载产线配置文件</li>
-</ol>
+<p>4.在 Python API 中加载产线配置文件</p>
 <p>初始化产线对象时，可通过 paddlex_config 参数传入 PaddleX 产线配置文件路径或配置字典，PaddleOCR 会读取其中的内容作为产线配置。示例如下：</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">paddleocr</span><span class="w"> </span><span class="kn">import</span> <span class="n">PaddleOCR</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
@@ -4965,7 +4968,7 @@ for i, res in enumerate(result["ocrResults"]):
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月22日 07:50:30">2025年5月22日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月26日 12:29:08 UTC">2025年5月26日</span>
   </span>
 
     
@@ -4975,7 +4978,7 @@ for i, res in enumerate(result["ocrResults"]):
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月22日 07:50:30">2025年5月22日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月26日 12:29:08 UTC">2025年5月26日</span>
   </span>
 
     
